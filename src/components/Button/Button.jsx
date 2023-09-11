@@ -3,6 +3,7 @@ import {useState} from "react";
 
 export const Button = () => {
     const [text, setText] = useState('Save')
+    console.log('render')
 
     const clicked = () => {
         setText('Close')
