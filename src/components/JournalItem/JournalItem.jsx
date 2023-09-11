@@ -1,9 +1,6 @@
 import './JournalItem.css'
-export const JournalItem = () => {
-    const title  = 'Подготовка к обновлению курсов';
-    const date = new Date()
-    const text = 'Горные походы открывают удивительные природные ландшафты.'
-
+export const JournalItem = (props) => {
+    const {title, date, text} = props
     return (
         <div className={'journal-item'}>
             <h2 className={'journal-item__header'}>{title}</h2>
