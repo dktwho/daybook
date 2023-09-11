@@ -1,11 +1,13 @@
 import './App.css'
+import {Button} from "./components/Button/Button.jsx";
 
 function App() {
-
     return (
-        <div>
-            project
-        </div>
+        <>
+            <h1>Title</h1>
+            <p>Some text</p>
+            <Button/>
+        </>
     )
 }
 
