@@ -1,8 +1,11 @@
 import './Button.css'
 
 export const Button = () => {
+    const clicked = () => {
+        console.log('click')
+    }
     return (
-        <button className={'button accent'}>Save</button>
+        <button onClick={clicked} className={'button accent'}>Save</button>
     );
 };
 

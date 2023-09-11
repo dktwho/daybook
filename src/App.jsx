@@ -29,8 +29,6 @@ function App() {
             <CardButton>
                 <JournalItem title={data[1].title} date={data[1].date} text={data[1].text}/>
             </CardButton>
-
-
         </>
     )
 }
