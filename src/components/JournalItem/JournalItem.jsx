@@ -1,4 +1,4 @@
-
+import './JournalItem.css'
 export const JournalItem = () => {
     const title  = 'Подготовка к обновлению курсов';
     const date = new Date()
