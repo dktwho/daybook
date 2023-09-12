@@ -1,7 +1,7 @@
-import './Header.css'
+import s from './Header.module.css'
 
 export const Header = () => {
     return (
-        <img className={'logo'} src="/logo.svg" alt="logo"/>
+        <img className={s.logo} src="/logo.svg" alt="logo"/>
     );
 };
