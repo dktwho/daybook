@@ -2,6 +2,6 @@ import './Header.css'
 
 export const Header = () => {
     return (
-        <>Logo</>
+        <img className={'logo'} src="/logo.svg" alt="logo"/>
     );
 };

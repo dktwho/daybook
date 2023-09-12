@@ -36,12 +36,9 @@ function App() {
                 </JournalList>
             </LeftPanel>
             <Body>
-                Body
+                <input type="text"/>
             </Body>
-            {/*<h1>Title</h1>*/}
-            {/*<p>Some text</p>*/}
-            {/*<Button/>*/}
-            {/*<CardButton>New journal story</CardButton>*/}
+
 
         </div>
     )
