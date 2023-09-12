@@ -27,7 +27,13 @@ function App() {
 
     const [items, setItems] = useState(data)
     const addNewItem = (item) => {
-        setItems(oldItems => ([...oldItems, item]))
+        let newItem =  {
+            text: item.text,
+            title: item.title,
+            tag: item.tag,
+            date: new Date(item.date)
+        }
+        setItems(oldItems => ([...oldItems, newItem ]))
     }
 
 
