@@ -6,6 +6,7 @@ import {Header} from "./components/Header/Header.jsx";
 import {JournalList} from "./components/JournalList/JournalList.jsx";
 import {Body} from "../layout/Body/Body.jsx";
 import {JournalAddButton} from "./components/JournalAddButton/JournalAddButton.jsx";
+import {useState} from "react";
 
 function App() {
     const data = [
@@ -20,9 +21,10 @@ function App() {
             date: new Date()
         }
     ];
+    const [inputData, setInputData] = useState('')
 
     const inputChange = (e) => {
-        console.log(e.currentTarget.value)
+        setInputData(e.currentTarget.value)
     }
 
     return (
@@ -40,7 +42,7 @@ function App() {
                 </JournalList>
             </LeftPanel>
             <Body>
-                <input type="text" onChange={inputChange}/>
+                <input value={inputData} type="text" onChange={inputChange}/>
             </Body>
 
 
