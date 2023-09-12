@@ -36,6 +36,10 @@ function App() {
         setItems(oldItems => ([...oldItems, newItem ]))
     }
 
+    const sortItems = (a,b) => a.date < b.date ? 1 : -1
+
+
+
 
     return (
         <div className={'app'}>
@@ -43,7 +47,7 @@ function App() {
                 <Header/>
                 <JournalAddButton/>
                 <JournalList>
-                    {items.map(p => {
+                    {items.sort(sortItems).map(p => {
                         return (
                             <CardButton key={p.date + p.title}>
                                 <JournalItem title={p.title} date={p.date} text={p.text}/>
