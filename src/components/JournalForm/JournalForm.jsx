@@ -1,5 +1,6 @@
 import {Button} from "../Button/Button.jsx";
 import {useState} from "react";
+import './JournalForm.css'
 
 export const JournalForm = ({addNewPost}) => {
     const [formValidState, setFormValidState] = useState({
@@ -41,11 +42,11 @@ export const JournalForm = ({addNewPost}) => {
 
     return (
         <form className={'journal-form'} onSubmit={addJournalItem}>
-            <input type="text" name={'title'} style={{border: formValidState.title ? undefined : '1px solid red'}}/>
-            <input type="date" name={'date'} style={{border: formValidState.date ? undefined : '1px solid red'}}/>
+            <input type="text" name={'title'} className={`input ${formValidState.title ? '' : 'invalid'}`}/>
+            <input type="date" name={'date'} className={`input ${formValidState.date ? '' : 'invalid'}`}/>
             <input name={'tag'} type="text"/>
             <textarea name="text" id="" cols="30" rows="10"
-                      style={{border: formValidState.text ? undefined : '1px solid red'}}></textarea>
+                      className={`input ${formValidState.text ? '' : 'invalid'}`}></textarea>
             <Button text={'Submit'}/>
         </form>
     );
