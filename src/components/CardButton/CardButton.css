@@ -6,8 +6,10 @@
     cursor: pointer;
     text-align: start ;
     display: block;
+    color: #FFF;
+    width: 100%;
 }
 
 .card-button:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
 }

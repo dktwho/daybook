@@ -1,7 +1,11 @@
 import './App.css'
-import {Button} from "./components/Button/Button.jsx";
 import {JournalItem} from "./components/JournalItem/JournalItem.jsx";
 import {CardButton} from "./components/CardButton/CardButton.jsx";
+import {LeftPanel} from "../layout/LeftPanel/LeftPanel.jsx";
+import {Header} from "./components/Header/Header.jsx";
+import {JournalList} from "./components/JournalList/JournalList.jsx";
+import {Body} from "../layout/Body/Body.jsx";
+import {JournalAddButton} from "./components/JournalAddButton/JournalAddButton.jsx";
 
 function App() {
     const data = [
@@ -18,18 +22,28 @@ function App() {
     ];
 
     return (
-        <>
-            <h1>Title</h1>
-            <p>Some text</p>
-            <Button/>
-            <CardButton>New journal story</CardButton>
-            <CardButton>
-                <JournalItem title={data[0].title} date={data[0].date} text={data[0].text}/>
-            </CardButton>
-            <CardButton>
-                <JournalItem title={data[1].title} date={data[1].date} text={data[1].text}/>
-            </CardButton>
-        </>
+        <div className={'app'}>
+            <LeftPanel>
+                <Header/>
+                <JournalAddButton/>
+                <JournalList>
+                    <CardButton>
+                        <JournalItem title={data[0].title} date={data[0].date} text={data[0].text}/>
+                    </CardButton>
+                    <CardButton>
+                        <JournalItem title={data[1].title} date={data[1].date} text={data[1].text}/>
+                    </CardButton>
+                </JournalList>
+            </LeftPanel>
+            <Body>
+                Body
+            </Body>
+            {/*<h1>Title</h1>*/}
+            {/*<p>Some text</p>*/}
+            {/*<Button/>*/}
+            {/*<CardButton>New journal story</CardButton>*/}
+
+        </div>
     )
 }
 
