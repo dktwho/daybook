@@ -6,7 +6,6 @@ export const JournalItem = (props) => {
 
     return (
         <>
-
             <h2 className={'journal-item__header'}>{title}</h2>
             <h2 className={'journal-item__body'}>
                 <div className={'journal-item__date'}>{formatedDate}</div>

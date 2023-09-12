@@ -1,6 +1,4 @@
 import './App.css'
-import {JournalItem} from "./components/JournalItem/JournalItem.jsx";
-import {CardButton} from "./components/CardButton/CardButton.jsx";
 import {LeftPanel} from "../layout/LeftPanel/LeftPanel.jsx";
 import {Header} from "./components/Header/Header.jsx";
 import {JournalList} from "./components/JournalList/JournalList.jsx";
