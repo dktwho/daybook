@@ -6,22 +6,29 @@ import {Header} from "./components/Header/Header.jsx";
 import {JournalList} from "./components/JournalList/JournalList.jsx";
 import {Body} from "../layout/Body/Body.jsx";
 import {JournalAddButton} from "./components/JournalAddButton/JournalAddButton.jsx";
-import {useState} from "react";
 import {JournalForm} from "./components/JournalForm/JournalForm.jsx";
+import {useState} from "react";
 
 function App() {
     const data = [
         {
             title: 'Подготовка к обновлению курсов',
             text: 'Горные походы открывают удивительные природные ландшафты',
-            date: new Date()
+            date: new Date(),
+            tag: 'tag1'
         },
         {
             title: 'Поход в горы',
             text: 'Различают альпинизм и горный туризм',
-            date: new Date()
+            date: new Date(),
+            tag: 'tag2'
         }
     ];
+
+    const [items, setItems] = useState(data)
+    const addNewItem = (item) => {
+        setItems(oldItems => ([...oldItems, item]))
+    }
 
 
     return (
@@ -30,16 +37,17 @@ function App() {
                 <Header/>
                 <JournalAddButton/>
                 <JournalList>
-                    <CardButton>
-                        <JournalItem title={data[0].title} date={data[0].date} text={data[0].text}/>
-                    </CardButton>
-                    <CardButton>
-                        <JournalItem title={data[1].title} date={data[1].date} text={data[1].text}/>
-                    </CardButton>
+                    {items.map(p => {
+                        return (
+                            <CardButton key={p.date + p.title}>
+                                <JournalItem title={p.title} date={p.date} text={p.text}/>
+                            </CardButton>
+                        )
+                    })}
                 </JournalList>
             </LeftPanel>
             <Body>
-                <JournalForm/>
+                <JournalForm addNewPost={addNewItem}/>
             </Body>
 
 
