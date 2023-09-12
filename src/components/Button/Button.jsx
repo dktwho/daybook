@@ -1,8 +1,8 @@
 import './Button.css'
 
-export const Button = ({text}) => {
+export const Button = ({text, onClick}) => {
     return (
-        <button className={'button accent'}>{text}</button>
+        <button onClick={onClick} className={'button accent'}>{text}</button>
     );
 };
 

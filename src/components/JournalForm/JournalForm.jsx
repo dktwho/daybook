@@ -12,9 +12,7 @@ export const JournalForm = () => {
         const formData = new FormData(e.target)
         const formProps = Object.fromEntries(formData)
         console.log(formProps)
-
     }
-
 
     return (
         <form className={'journal-form'} onSubmit={addJournalItem}>
@@ -22,7 +20,7 @@ export const JournalForm = () => {
             <input type="date" name={'date'}/>
             <input value={inputData} name={'tag'} type="text" onChange={inputChange}/>
             <textarea name="post" id="" cols="30" rows="10"></textarea>
-            <Button text={'Submit'}/>
+            <Button text={'Submit'} onClick={() => console.log('clicked')}/>
         </form>
     );
 };
