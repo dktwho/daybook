@@ -44,27 +44,29 @@ function App() {
 
     const sortItems = (a, b) => a.date < b.date ? 1 : -1
 
+    let list = <p>add you first story</p>
+    if (items.length > 0) {
+        list = items.sort(sortItems).map(p => {
+            return (
+                <CardButton key={p.id}>
+                    <JournalItem title={p.title} date={p.date} text={p.text}/>
+                </CardButton>
+            )
+        })
+    }
+
     return (
         <div className={'app'}>
             <LeftPanel>
                 <Header/>
                 <JournalAddButton/>
                 <JournalList>
-                    {!items.length === 0 && <p>add you first story</p>}
-                    {items.length > 0 && items.sort(sortItems).map(p => {
-                        return (
-                            <CardButton key={p.id}>
-                                <JournalItem title={p.title} date={p.date} text={p.text}/>
-                            </CardButton>
-                        )
-                    })}
+                    {list}
                 </JournalList>
             </LeftPanel>
             <Body>
                 <JournalForm addNewPost={addNewItem}/>
             </Body>
-
-
         </div>
     )
 }
