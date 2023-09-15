@@ -24,20 +24,23 @@ export const JournalForm = ({addNewPost}) => {
     useEffect(() => {
         if (isFormReadyToSubmit) {
             addNewPost(values)
+            dispatchForm({type: 'RESET'})
         }
     }, [isFormReadyToSubmit])
 
     const addJournalItem = (e) => {
         e.preventDefault()
-        const formData = new FormData(e.target)
-        const formProps = Object.fromEntries(formData)
-        dispatchForm({type: 'SUBMIT', payload: formProps})
+        dispatchForm({type: 'SUBMIT'})
+    }
+
+    const onChange = (e) => {
+        dispatchForm({type: 'SET_VALUE', payload: {[e.target.name]: e.target.value}})
     }
 
     return (
         <form className={s.journalForm} onSubmit={addJournalItem}>
             <div>
-                <input type="text" name={'title'}
+                <input type="text" name={'title'} value={values.title} onChange={onChange}
                        className={cn(s['input-title'], {[s['invalid']]: !isValid.title})}/>
             </div>
 
@@ -45,7 +48,7 @@ export const JournalForm = ({addNewPost}) => {
                 <label htmlFor="date" className={s['form-label']}>
                     <img src="/Frame1.svg" alt="icon-calendar"/>
                     <span>Date</span></label>
-                <input type="date" id={'date'} name={'date'}
+                <input type="date" id={'date'} name={'date'} value={values.date} onChange={onChange}
                        className={cn(s['input'], {[s['invalid']]: !isValid.date})}/>
             </div>
 
@@ -53,11 +56,11 @@ export const JournalForm = ({addNewPost}) => {
                 <label htmlFor="tag" className={s['form-label']}>
                     <img src="/Frame2.svg" alt="icon-tag"/>
                     <span>Tag</span></label>
-                <input name={'tag'} id={'tag'} type="text"
+                <input name={'tag'} id={'tag'} type="text" value={values.tag} onChange={onChange}
                        className={cn(s['input'], {[s['invalid']]: !isValid.text})}/>
             </div>
 
-            <textarea name="text" id="" cols="30" rows="10"
+            <textarea name="text" id="" cols="30" rows="10" value={values.text} onChange={onChange}
                       className={cn(s['input'], {[s['invalid']]: !isValid.text})}/>
             <Button text={'Submit'}/>
         </form>
