@@ -1,7 +1,6 @@
 import {Button} from "../Button/Button.jsx";
 import {useEffect, useReducer, useRef} from "react";
 import s from './JournalForm.module.css'
-import cn from 'classnames'
 import {formReducer, INITIAL_STATE} from "./JournalForm.state.js";
 import {Input} from "../Input/Input.jsx";
 
@@ -59,29 +58,29 @@ export const JournalForm = ({addNewPost}) => {
     return (
         <form className={s.journalForm} onSubmit={addJournalItem}>
             <div>
-                <Input type="text" name={'title'} ref={titleRef} value={values.title} onChange={onChange}
-                       className={cn(s['input-title'], {[s['invalid']]: !isValid.title})}/>
+                <Input type="text" name={'title'} isValid={isValid.title} ref={titleRef} value={values.title} onChange={onChange} appearance={'title'}
+                />
             </div>
 
             <div className={s['form-row']}>
                 <label htmlFor="date" className={s['form-label']}>
                     <img src="/Frame1.svg" alt="icon-calendar"/>
                     <span>Date</span></label>
-                <Input type="date" id={'date'} ref={dateRef} name={'date'} value={values.date} onChange={onChange}
-                       className={cn(s['input'], {[s['invalid']]: !isValid.date})}/>
+                <Input type="date" id={'date'} ref={dateRef} name={'date'} isValid={isValid.date} value={values.date} onChange={onChange}
+                />
             </div>
 
             <div className={s['form-row']}>
                 <label htmlFor="tag" className={s['form-label']}>
                     <img src="/Frame2.svg" alt="icon-tag"/>
                     <span>Tag</span></label>
-                <Input name={'tag'} id={'tag'} placeholder={'   optional'} type="text" value={values.tag}
+                <Input name={'tag'} id={'tag'} placeholder={'   optional'}  type="text" value={values.tag}
                        onChange={onChange}
-                       className={cn(s['input'], {[s['invalid']]: !isValid.text})}/>
+                />
             </div>
 
-            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
-                      className={cn(s['input'], {[s['invalid']]: !isValid.text})}/>
+            <textarea name="text" id="" cols="30" rows="10" ref={textRef}  value={values.text} onChange={onChange}
+            />
             <Button text={'Submit'}/>
         </form>
     );
