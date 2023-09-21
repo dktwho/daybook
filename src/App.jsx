@@ -7,6 +7,7 @@ import {JournalAddButton} from "./components/JournalAddButton/JournalAddButton.j
 import {JournalForm} from "./components/JournalForm/JournalForm.jsx";
 import {v4 as uuidv4} from 'uuid';
 import {useLocalStorage} from "./hooks/useLocalStorageHook.js";
+import {UserContext} from "./context/user.context.js";
 
 const mapItems = (items) => {
     if (!items) {
@@ -29,16 +30,19 @@ function App() {
 
 
     return (
-        <div className={'app'}>
-            <LeftPanel>
-                <Header />
-                <JournalAddButton/>
-                <JournalList items={mapItems(items)}/>
-            </LeftPanel>
-            <Body>
-                <JournalForm addNewPost={addNewItem}/>
-            </Body>
-        </div>
+        <UserContext.Provider value={{userId: 2}}>
+            <div className={'app'}>
+                <LeftPanel>
+                    <Header/>
+                    <JournalAddButton/>
+                    <JournalList items={mapItems(items)}/>
+                </LeftPanel>
+                <Body>
+                    <JournalForm addNewPost={addNewItem}/>
+                </Body>
+            </div>
+        </UserContext.Provider>
+
     )
 }
 
