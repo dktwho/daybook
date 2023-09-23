@@ -12,7 +12,7 @@ export const JournalForm = ({addNewPost}) => {
     const titleRef = useRef()
     const dateRef = useRef()
     const textRef = useRef()
-    const { userId} = useContext(UserContext)
+    const {userId} = useContext(UserContext)
 
     const focusError = (isValid) => {
         switch (true) {
@@ -58,34 +58,36 @@ export const JournalForm = ({addNewPost}) => {
     }
 
     return (
-                <form className={s.journalForm} onSubmit={addJournalItem}>
-                    {userId}
-                    <div>
-                        <Input type="text" name={'title'} isValid={isValid.title} ref={titleRef} value={values.title} onChange={onChange} appearance={'title'}
-                        />
-                    </div>
+        <form className={s.journalForm} onSubmit={addJournalItem}>
+            {userId}
+            <div>
+                <Input type="text" name={'title'} isValid={isValid.title} ref={titleRef} value={values.title}
+                       onChange={onChange} appearance={'title'}
+                />
+            </div>
 
-                    <div className={s['form-row']}>
-                        <label htmlFor="date" className={s['form-label']}>
-                            <img src="/Frame1.svg" alt="icon-calendar"/>
-                            <span>Date</span></label>
-                        <Input type="date" id={'date'} ref={dateRef} name={'date'} isValid={isValid.date} value={values.date} onChange={onChange}
-                        />
-                    </div>
+            <div className={s['form-row']}>
+                <label htmlFor="date" className={s['form-label']}>
+                    <img src="/Frame1.svg" alt="icon-calendar"/>
+                    <span>Date</span></label>
+                <Input type="date" id={'date'} ref={dateRef} name={'date'} isValid={isValid.date} value={values.date}
+                       onChange={onChange}
+                />
+            </div>
 
-                    <div className={s['form-row']}>
-                        <label htmlFor="tag" className={s['form-label']}>
-                            <img src="/Frame2.svg" alt="icon-tag"/>
-                            <span>Tag</span></label>
-                        <Input name={'tag'} id={'tag'} placeholder={'   optional'}  type="text" value={values.tag}
-                               onChange={onChange}
-                        />
-                    </div>
+            <div className={s['form-row']}>
+                <label htmlFor="tag" className={s['form-label']}>
+                    <img src="/Frame2.svg" alt="icon-tag"/>
+                    <span>Tag</span></label>
+                <Input name={'tag'} id={'tag'} placeholder={'   optional'} type="text" value={values.tag}
+                       onChange={onChange}
+                />
+            </div>
 
-                    <textarea name="text" id="" cols="30" rows="10" ref={textRef}  value={values.text} onChange={onChange}
-                    />
-                    <Button text={'Submit'}/>
-                </form>
+            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
+            />
+            <Button text={'Submit'}/>
+        </form>
 
     );
 };
