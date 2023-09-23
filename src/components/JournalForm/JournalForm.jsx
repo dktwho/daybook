@@ -1,5 +1,5 @@
 import {Button} from "../Button/Button.jsx";
-import {useEffect, useReducer, useRef} from "react";
+import {useContext, useEffect, useReducer, useRef} from "react";
 import s from './JournalForm.module.css'
 import {formReducer, INITIAL_STATE} from "./JournalForm.state.js";
 import {Input} from "../Input/Input.jsx";
@@ -12,6 +12,7 @@ export const JournalForm = ({addNewPost}) => {
     const titleRef = useRef()
     const dateRef = useRef()
     const textRef = useRef()
+    const { userId} = useContext(UserContext)
 
     const focusError = (isValid) => {
         switch (true) {
@@ -57,10 +58,8 @@ export const JournalForm = ({addNewPost}) => {
     }
 
     return (
-        <UserContext.Consumer>
-            {(context) => (
                 <form className={s.journalForm} onSubmit={addJournalItem}>
-                    {context.userId}
+                    {userId}
                     <div>
                         <Input type="text" name={'title'} isValid={isValid.title} ref={titleRef} value={values.title} onChange={onChange} appearance={'title'}
                         />
@@ -87,9 +86,6 @@ export const JournalForm = ({addNewPost}) => {
                     />
                     <Button text={'Submit'}/>
                 </form>
-            )}
-
-        </UserContext.Consumer>
 
     );
 };
