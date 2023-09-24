@@ -5,7 +5,7 @@ export const Header = () => {
     return (
         <>
             <img className={s.logo} src="/logo.svg" alt="logo"/>
-            <SelectUser />
+            <SelectUser/>
         </>
     );
 };
