@@ -61,8 +61,13 @@ export const JournalForm = ({addNewPost}) => {
         <form className={s.journalForm} onSubmit={addJournalItem}>
             {userId}
             <div>
-                <Input type="text" name={'title'} isValid={isValid.title} ref={titleRef} value={values.title}
-                       onChange={onChange} appearance={'title'}
+                <Input type="text"
+                       name={'title'}
+                       isValid={isValid.title}
+                       ref={titleRef}
+                       value={values.title}
+                       onChange={onChange}
+                       appearance={'title'}
                 />
             </div>
 
@@ -70,7 +75,12 @@ export const JournalForm = ({addNewPost}) => {
                 <label htmlFor="date" className={s['form-label']}>
                     <img src="/Frame1.svg" alt="icon-calendar"/>
                     <span>Date</span></label>
-                <Input type="date" id={'date'} ref={dateRef} name={'date'} isValid={isValid.date} value={values.date}
+                <Input type="date"
+                       id={'date'}
+                       ref={dateRef}
+                       name={'date'}
+                       isValid={isValid.date}
+                       value={values.date}
                        onChange={onChange}
                 />
             </div>
@@ -79,14 +89,17 @@ export const JournalForm = ({addNewPost}) => {
                 <label htmlFor="tag" className={s['form-label']}>
                     <img src="/Frame2.svg" alt="icon-tag"/>
                     <span>Tag</span></label>
-                <Input name={'tag'} id={'tag'} placeholder={'   optional'} type="text" value={values.tag}
+                <Input name={'tag'}
+                       id={'tag'}
+                       placeholder={'   optional'}
+                       type="text" value={values.tag}
                        onChange={onChange}
                 />
             </div>
 
             <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
             />
-            <Button text={'Submit'}/>
+            <Button text={'Сохранить'}/>
         </form>
 
     );

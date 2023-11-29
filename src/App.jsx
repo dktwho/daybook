@@ -37,14 +37,13 @@ function App() {
                 <LeftPanel>
                     <Header/>
                     <JournalAddButton/>
-                    <JournalList items={mapItems(items)}/>
+                    <JournalList  items={mapItems(items)}/>
                 </LeftPanel>
                 <Body>
                     <JournalForm addNewPost={addNewItem}/>
                 </Body>
             </div>
         </UserContext.Provider>
-
     )
 }
 
