@@ -2,7 +2,7 @@
     border-radius: 3px;
     background: rgba(255, 255, 255, 0.03);
     padding: 20px;
-
+    color: #FFF
 }
 
 .journal-item__header {
@@ -28,7 +28,6 @@
     font-weight: 400;
     line-height: normal;
     overflow: hidden;
-
 }
 
 .journal-item__body {
