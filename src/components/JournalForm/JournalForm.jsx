@@ -4,7 +4,7 @@ import s from './JournalForm.module.css'
 import {formReducer, INITIAL_STATE} from "./JournalForm.state.js";
 import {Input} from "../Input/Input.jsx";
 import {UserContext} from "../../context/user.context.js";
-
+import cn from 'classnames'
 
 export const JournalForm = ({addNewPost}) => {
     const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE)
@@ -68,6 +68,9 @@ export const JournalForm = ({addNewPost}) => {
                        value={values.title}
                        onChange={onChange}
                        appearance={'title'}
+                       className={cn(s['input'], {
+                           [s['invalid']]: !isValid.text
+                       })}
                 />
             </div>
 
@@ -82,6 +85,9 @@ export const JournalForm = ({addNewPost}) => {
                        isValid={isValid.date}
                        value={values.date}
                        onChange={onChange}
+                       className={cn(s['input'], {
+                           [s['invalid']]: !isValid.text
+                       })}
                 />
             </div>
 
@@ -94,10 +100,15 @@ export const JournalForm = ({addNewPost}) => {
                        placeholder={'   optional'}
                        type="text" value={values.tag}
                        onChange={onChange}
+                       className={cn(s['input'], {
+                           [s['invalid']]:  !isValid.text
+                       })}
                 />
             </div>
 
-            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
+            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange} className={cn(s['input'], {
+                [s['invalid']]: !isValid.text
+            })}
             />
             <Button text={'Сохранить'}/>
         </form>
