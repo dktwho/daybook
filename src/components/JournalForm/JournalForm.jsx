@@ -68,9 +68,6 @@ export const JournalForm = ({addNewPost}) => {
                        value={values.title}
                        onChange={onChange}
                        appearance={'title'}
-                       className={cn(s['input'], {
-                           [s['invalid']]: !isValid.title
-                       })}
                 />
             </div>
 
@@ -85,9 +82,6 @@ export const JournalForm = ({addNewPost}) => {
                        isValid={isValid.date}
                        value={values.date}
                        onChange={onChange}
-                       className={cn(s['input'], {
-                           [s['invalid']]: !isValid.date
-                       })}
                 />
             </div>
 
@@ -100,15 +94,11 @@ export const JournalForm = ({addNewPost}) => {
                        placeholder={'   optional'}
                        type="text" value={values.tag}
                        onChange={onChange}
-                       className={cn(s['input'], {
-                           [s['invalid']]:  !isValid.tag
-                       })}
                 />
             </div>
 
-            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange} className={cn(s['input'], {
-                [s['invalid']]: !isValid.text
-            })}
+            <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
+                      className={cn(s['input'], {     [s['invalid']]: !isValid.text   })}
             />
             <Button text={'Сохранить'}/>
         </form>
