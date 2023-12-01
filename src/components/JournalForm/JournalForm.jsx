@@ -69,7 +69,7 @@ export const JournalForm = ({addNewPost}) => {
                        onChange={onChange}
                        appearance={'title'}
                        className={cn(s['input'], {
-                           [s['invalid']]: !isValid.text
+                           [s['invalid']]: !isValid.title
                        })}
                 />
             </div>
@@ -86,7 +86,7 @@ export const JournalForm = ({addNewPost}) => {
                        value={values.date}
                        onChange={onChange}
                        className={cn(s['input'], {
-                           [s['invalid']]: !isValid.text
+                           [s['invalid']]: !isValid.date
                        })}
                 />
             </div>
@@ -101,7 +101,7 @@ export const JournalForm = ({addNewPost}) => {
                        type="text" value={values.tag}
                        onChange={onChange}
                        className={cn(s['input'], {
-                           [s['invalid']]:  !isValid.text
+                           [s['invalid']]:  !isValid.tag
                        })}
                 />
             </div>
