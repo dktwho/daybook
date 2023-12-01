@@ -24,6 +24,12 @@
     overflow: hidden;
 }
 
+.journal-item__tag {
+    font-style: italic;
+    color: #646cff;
+    font-size: 12px;
+}
+
 .journal-item__body {
     display: flex;
     gap: 10px;

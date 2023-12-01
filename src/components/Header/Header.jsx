@@ -1,4 +1,3 @@
-import s from './Header.module.css'
 import {SelectUser} from "../SelectUser/SelectUser.jsx";
 
 export const Header = () => {
