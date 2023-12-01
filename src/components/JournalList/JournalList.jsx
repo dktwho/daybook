@@ -13,7 +13,7 @@ export const JournalList = ({items}) => {
             {items.sort(sortItems).map(p => {
                 return (
                     <CardButton key={p.id}>
-                        <JournalItem title={p.title} date={p.date} text={p.text}/>
+                        <JournalItem title={p.title} date={p.date} text={p.text} tag={p.tag}/>
                     </CardButton>
                 )
             })}

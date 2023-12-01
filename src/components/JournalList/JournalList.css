@@ -3,3 +3,9 @@
     flex-direction: column;
     gap: 30px;
 }
+
+h6 {
+    font-style: italic;
+    color: #646cff;
+    font-size: 12px;
+}
