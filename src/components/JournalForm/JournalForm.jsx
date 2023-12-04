@@ -104,7 +104,8 @@ export const JournalForm = ({addNewPost}) => {
             <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
                       className={cn(s['input'], {     [s['invalid']]: !isValid.text   })}
             />
-            <Button text={'Сохранить'}/>
+            {/*<Button text={'Сохранить'}/>*/}
+            <Button>Сохранить</Button>
         </form>
 
     );

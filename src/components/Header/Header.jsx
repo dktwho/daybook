@@ -14,7 +14,7 @@ export const Header = () => {
         <>
             <img className={s.logo} src={logos[logoIndex]} alt="logo"/>
             <SelectUser/>
-            <Button onClick={toggleLogo} text={'Change logo'}/>
+            <Button onClick={toggleLogo}>Change logo</Button>
         </>
     );
 };
