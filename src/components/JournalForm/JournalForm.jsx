@@ -3,7 +3,7 @@ import {useContext, useEffect, useReducer, useRef} from "react";
 import s from './JournalForm.module.css'
 import {formReducer, INITIAL_STATE} from "./JournalForm.state.js";
 import {Input} from "../Input/Input.jsx";
-import {UserContext} from "../../context/user.context.js";
+import {UserContext} from "../../context/user.context.jsx";
 import cn from 'classnames'
 
 export const JournalForm = ({addNewPost}) => {

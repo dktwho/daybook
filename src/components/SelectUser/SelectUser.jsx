@@ -1,6 +1,6 @@
 import s from './SelectUser.module.css'
 import {useContext} from "react";
-import {UserContext} from "../../context/user.context.js";
+import {UserContext} from "../../context/user.context.jsx";
 
 export const SelectUser = () => {
     const {userId, setUserId} = useContext(UserContext)
