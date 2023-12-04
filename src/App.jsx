@@ -23,8 +23,9 @@ function App() {
     const addNewItem = (item) => {
         setItems([...mapItems(items), {
             id: uuidv4(),
-            text: item.text,
-            title: item.title,
+            ...item,
+            // text: item.text,
+            // title: item.title,
             tag: item.tag,
             date: new Date(item.date)
         }])
