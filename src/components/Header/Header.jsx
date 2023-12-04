@@ -1,7 +1,7 @@
 import {SelectUser} from "../SelectUser/SelectUser.jsx";
 import {useState} from "react";
-import s from './Header.module.css'
 import {Button} from "../Button/Button.jsx";
+import Logo from "../Logo/Logo.jsx";
 
 const logos = ['/logo.svg', './vite.svg']
 
@@ -12,7 +12,7 @@ export const Header = () => {
     }
     return (
         <>
-            <img className={s.logo} src={logos[logoIndex]} alt="logo"/>
+            <Logo image={logos[logoIndex]}/>
             <SelectUser/>
             <Button onClick={toggleLogo}>Change logo</Button>
         </>
