@@ -48,6 +48,10 @@ export const JournalForm = ({addNewPost}) => {
         }
     }, [isFormReadyToSubmit, values, addNewPost])
 
+    useEffect(() => {
+        dispatchForm({type: 'SET_VALUE', payload: {userId}})
+    }, [userId])
+
     const addJournalItem = (e) => {
         e.preventDefault()
         dispatchForm({type: 'SUBMIT'})
