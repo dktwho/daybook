@@ -11,9 +11,9 @@ export const SelectUser = () => {
     return (
         <>
             <img className={s.logo} src="/logo.svg" alt="logo"/>
-            <select name="user" id="user" value={userId} onChange={changeUser}>
-                <option value="1">Bob</option>
-                <option value="2">Bill</option>
+            <select className={s['select']} name="user" id="user" value={userId} onChange={changeUser}>
+                <option className={s['option']} value="1">Bob</option>
+                <option className={s['option']} value="2">Bill</option>
             </select>
         </>
     );
