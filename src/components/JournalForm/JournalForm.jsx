@@ -131,3 +131,5 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
 
     );
 };
+
+
