@@ -29,6 +29,10 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
     }
 
     useEffect(() => {
+        if(!data) {
+            dispatchForm({type: 'RESET'})
+            dispatchForm({type: 'SET_VALUE', payload: {userId}})
+        }
         dispatchForm({type: 'SET_VALUE', payload: {...data}})
     }, [data])
 
@@ -84,7 +88,7 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
                        onChange={onChange}
                        appearance={'title'}
                 />
-                {data.id &&
+                {data?.id &&
                     <button
                         onClick={deleteJournalItem}
                         type='button'
