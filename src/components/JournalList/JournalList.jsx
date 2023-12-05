@@ -1,21 +1,29 @@
 import './JournalList.css'
 import {CardButton} from "../CardButton/CardButton.jsx";
 import {JournalItem} from "../JournalItem/JournalItem.jsx";
-import {useContext} from "react";
+import {useContext, useMemo} from "react";
 import {UserContext} from "../../context/user.context.jsx";
 
 export const JournalList = ({items}) => {
     const {userId} = useContext(UserContext)
+    const sortItems = (a, b) => a.date < b.date ? 1 : -1
+    const filteredItems = useMemo(() => {
+        return (
+            items
+                .filter(el => el.userId === userId)
+                .sort(sortItems)
+        )
+    }, [items, userId])
+
+
     if (items.length === 0) {
         return <p>add you first story</p>
     }
-    const sortItems = (a, b) => a.date < b.date ? 1 : -1
+
 
     return (
         <>
-            {items
-                .filter(el => el.userId === userId)
-                .sort(sortItems)
+            {filteredItems
                 .map(p => {
                     return (
                         <CardButton key={p.id}>
