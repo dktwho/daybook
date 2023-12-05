@@ -6,7 +6,7 @@ import {Input} from "../Input/Input.jsx";
 import {UserContext} from "../../context/user.context.jsx";
 import cn from 'classnames'
 
-export const JournalForm = ({addNewPost, data}) => {
+export const JournalForm = ({addNewPost, data, onDelete}) => {
     const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE)
     const {isValid, isFormReadyToSubmit, values} = formState
     const titleRef = useRef()
@@ -69,7 +69,7 @@ export const JournalForm = ({addNewPost, data}) => {
     return (
         <form className={s.journalForm} onSubmit={addJournalItem}>
             {userId}
-            <div>
+            <div className={s['form-row']}>
                 <Input type="text"
                        name={'title'}
                        isValid={isValid.title}
@@ -78,6 +78,7 @@ export const JournalForm = ({addNewPost, data}) => {
                        onChange={onChange}
                        appearance={'title'}
                 />
+                {data.id &&  <button onClick={() => onDelete(data.id)} type='button' className={s.remove}><img src="/Frame3.svg" alt="remove"/></button> }
             </div>
 
             <div className={s['form-row']}>
