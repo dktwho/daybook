@@ -66,6 +66,12 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
         dispatchForm({type: 'SET_VALUE', payload: {[e.target.name]: e.target.value}})
     }
 
+    const deleteJournalItem = () => {
+        onDelete(data.id)
+        dispatchForm({type: 'RESET'})
+        dispatchForm({type: 'SET_VALUE', payload: {userId}})
+    }
+
     return (
         <form className={s.journalForm} onSubmit={addJournalItem}>
             {userId}
@@ -78,7 +84,12 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
                        onChange={onChange}
                        appearance={'title'}
                 />
-                {data.id &&  <button onClick={() => onDelete(data.id)} type='button' className={s.remove}><img src="/Frame3.svg" alt="remove"/></button> }
+                {data.id &&
+                    <button
+                        onClick={deleteJournalItem}
+                        type='button'
+                        className={s.remove}><img src="/Frame3.svg"
+                                                  alt="remove"/></button>}
             </div>
 
             <div className={s['form-row']}>
@@ -108,7 +119,7 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
             </div>
 
             <textarea name="text" id="" cols="30" rows="10" ref={textRef} value={values.text} onChange={onChange}
-                      className={cn(s['input'], {     [s['invalid']]: !isValid.text   })}
+                      className={cn(s['input'], {[s['invalid']]: !isValid.text})}
             />
             {/*<Button text={'Сохранить'}/>*/}
             <Button>Сохранить</Button>
