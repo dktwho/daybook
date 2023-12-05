@@ -6,7 +6,7 @@ import {Input} from "../Input/Input.jsx";
 import {UserContext} from "../../context/user.context.jsx";
 import cn from 'classnames'
 
-export const JournalForm = ({addNewPost}) => {
+export const JournalForm = ({addNewPost, data}) => {
     const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE)
     const {isValid, isFormReadyToSubmit, values} = formState
     const titleRef = useRef()
@@ -29,6 +29,10 @@ export const JournalForm = ({addNewPost}) => {
     }
 
     useEffect(() => {
+        dispatchForm({type: 'SET_VALUE', payload: {...data}})
+    }, [data])
+
+    useEffect(() => {
         let timerId;
         if (!isValid.date || !formState.isValid.title || formState.isValid.tag) {
             focusError(isValid)
@@ -45,8 +49,9 @@ export const JournalForm = ({addNewPost}) => {
         if (isFormReadyToSubmit) {
             addNewPost(values)
             dispatchForm({type: 'RESET'})
+            dispatchForm({type: 'SET_VALUE', payload: {userId}})
         }
-    }, [isFormReadyToSubmit, values, addNewPost])
+    }, [isFormReadyToSubmit, values, addNewPost, userId])
 
     useEffect(() => {
         dispatchForm({type: 'SET_VALUE', payload: {userId}})

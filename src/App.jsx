@@ -8,6 +8,7 @@ import {JournalForm} from "./components/JournalForm/JournalForm.jsx";
 import {v4 as uuidv4} from 'uuid';
 import {useLocalStorage} from "./hooks/useLocalStorageHook.js";
 import {UserContextProvider} from "./context/user.context.jsx";
+import {useState} from "react";
 
 const mapItems = (items) => {
     if (!items) {
@@ -18,6 +19,7 @@ const mapItems = (items) => {
 
 function App() {
     const [items, setItems] = useLocalStorage('data')
+    const [selectedItem, setSelectedItem] = useState({})
 
 
     const addNewItem = (item) => {
@@ -37,10 +39,10 @@ function App() {
                 <LeftPanel>
                     <Header/>
                     <JournalAddButton/>
-                    <JournalList  items={mapItems(items)}/>
+                    <JournalList  items={mapItems(items)} setItems={setSelectedItem}/>
                 </LeftPanel>
                 <Body>
-                    <JournalForm addNewPost={addNewItem}/>
+                    <JournalForm addNewPost={addNewItem} data={selectedItem}/>
                 </Body>
             </div>
         </UserContextProvider>
