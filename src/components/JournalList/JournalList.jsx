@@ -4,7 +4,7 @@ import {JournalItem} from "../JournalItem/JournalItem.jsx";
 import {useContext, useMemo} from "react";
 import {UserContext} from "../../context/user.context.jsx";
 
-export const JournalList = ({items, setItem}) => {
+export const JournalList = ({items, setItems}) => {
     const {userId} = useContext(UserContext)
     const sortItems = (a, b) => a.date < b.date ? 1 : -1
     const filteredItems = useMemo(() => {
@@ -26,7 +26,7 @@ export const JournalList = ({items, setItem}) => {
             {filteredItems
                 .map(p => {
                     return (
-                        <CardButton key={p.id} onClick={() => setItem(p)}>
+                        <CardButton key={p.id} onClick={() => setItems(p)}>
                             <JournalItem title={p.title} date={p.date} text={p.text} tag={p.tag}/>
                         </CardButton>
                     )

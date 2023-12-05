@@ -23,23 +23,32 @@ function App() {
 
 
     const addNewItem = (item) => {
-        setItems([...mapItems(items), {
-            id: uuidv4(),
-            ...item,
-            // text: item.text,
-            // title: item.title,
-            tag: item.tag,
-            date: new Date(item.date)
-        }])
+        if (!item.id) {
+            setItems([...mapItems(items), {
+                id: uuidv4(),
+                ...item,
+                // text: item.text,
+                // title: item.title,
+                tag: item.tag,
+                date: new Date(item.date)
+            }])
+        } else {
+            setItems([...mapItems(items).map(i => {
+                if (i.id === item.id) {
+                    return {...item}
+                }
+                return i;
+            })])
+        }
     }
 
     return (
-        <UserContextProvider >
+        <UserContextProvider>
             <div className={'app'}>
                 <LeftPanel>
                     <Header/>
                     <JournalAddButton/>
-                    <JournalList  items={mapItems(items)} setItems={setSelectedItem}/>
+                    <JournalList items={mapItems(items)} setItems={setSelectedItem}/>
                 </LeftPanel>
                 <Body>
                     <JournalForm addNewPost={addNewItem} data={selectedItem}/>

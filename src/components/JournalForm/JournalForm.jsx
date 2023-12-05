@@ -89,7 +89,7 @@ export const JournalForm = ({addNewPost, data}) => {
                        ref={dateRef}
                        name={'date'}
                        isValid={isValid.date}
-                       value={values.date}
+                       value={values.date ? new Date(values.date).toISOString().slice(0, 10) : ''}
                        onChange={onChange}
                 />
             </div>
