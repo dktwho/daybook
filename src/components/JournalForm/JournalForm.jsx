@@ -128,7 +128,6 @@ export const JournalForm = ({addNewPost, data, onDelete}) => {
             {/*<Button text={'Сохранить'}/>*/}
             <Button>Сохранить</Button>
         </form>
-
     );
 };
 
